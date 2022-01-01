@@ -8,9 +8,15 @@ import * as dataRaw from '../../../../data/track.json'
   styleUrls: ['./track-page.component.css']
 })
 export class TrackPageComponent implements OnInit {
-  mockTracksList:Array<TrackModel> = [
+  lista:string[]=["hola","que","tal", "estas"];
 
+  mockTracksList:Array<TrackModel> = [
   ]
+  food = [
+    {name:'dumpl'},
+    {name : 'pizza'}
+  ];
+  
   constructor() { }
 
   ngOnInit(): void {

@@ -14,6 +14,12 @@ export class SectionGenericComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.mode = 'small'){
+      console.log('Se ejecuta new fun')
+    } else {
+      console.log('No se ejecuta')
+
+    }
   }
 
 }

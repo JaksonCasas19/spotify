@@ -25,7 +25,12 @@ export class SideBarComponent implements OnInit {
       {
         name: 'Tu biblioteca',
         icon:'uil uil-chart',
-        router:['/']
+        router:['/','favorites']
+      },
+      {
+        name: 'Track',
+        icon:'uil uil-headphones-alt',
+        router:['/','tracks']
       }
     ]
     this.customOptions = [
