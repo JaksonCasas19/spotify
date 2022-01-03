@@ -25,8 +25,13 @@ export class TrackPageComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.trackService.getAllTracks$()
-    .subscribe(response => {
-      console.log('CallService', response)
+    .subscribe((response: TrackModel[]) => {
+      this.tracksTrending = response;
+    })
+
+    this.trackService.getAllRandom$()
+    .subscribe((response: TrackModel[]) => {
+      this.tracksRandom = response;
     })
     /*const observer1$ = this.trackService.dataTracksTrending$.subscribe(response => {
       this.tracksTrending = response;
