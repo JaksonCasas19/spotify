@@ -24,15 +24,7 @@ export class TrackPageComponent implements OnInit, OnDestroy {
   constructor(private trackService: TrackService) { }
 
   ngOnInit(): void {
-    this.trackService.getAllTracks$()
-    .subscribe((response: TrackModel[]) => {
-      this.tracksTrending = response;
-    })
-
-    this.trackService.getAllRandom$()
-    .subscribe((response: TrackModel[]) => {
-      this.tracksRandom = response;
-    })
+    this.loadData();
     /*const observer1$ = this.trackService.dataTracksTrending$.subscribe(response => {
       this.tracksTrending = response;
       this.tracksRandom = response;
@@ -43,6 +35,21 @@ export class TrackPageComponent implements OnInit, OnDestroy {
       console.log('Canciones random..', response);
     })
     this.listObservers$ = [observer1$,observer2$ ]*/
+  }
+  loadData(): void {
+    this.trackService.getAllTracks$()
+    .subscribe((response: TrackModel[]) => {
+      this.tracksTrending = response;
+    }, err => {
+      console.log('Error de conexion');
+    })
+
+    this.trackService.getAllRandom$()
+    .subscribe((response: TrackModel[]) => {
+      this.tracksRandom = response;
+    }, err => {
+      console.log('Error de conexion');
+    })
   }
   ngOnDestroy(): void {
     /*this.listObservers$.forEach(u => u.unsubscribe())*/
